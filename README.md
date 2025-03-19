@@ -2,6 +2,65 @@
 
 A mobile application for tracking and managing plastic waste conversion to fuel.
 
+## Pipeline Diagram
+
+```mermaid
+graph LR
+    A[Collection Centers] -->|Plastic Waste| B[Sorting & Cleaning]
+    B --> C[Shredding]
+    C --> D[Pyrolysis]
+    D --> E[Condensation]
+    E --> F[Distillation]
+    F -->|Diesel| G[Fuel Storage]
+    F -->|Gasoline| G
+    F -->|Kerosene| G
+    
+    style A fill:#90EE90,stroke:#006400
+    style B fill:#ADD8E6,stroke:#0000FF
+    style C fill:#FFB6C1,stroke:#FF0000
+    style D fill:#FFD700,stroke:#B8860B
+    style E fill:#DDA0DD,stroke:#800080
+    style F fill:#F0E68C,stroke:#BDB76B
+    style G fill:#98FB98,stroke:#006400
+```
+
+### Process Steps
+
+1. **Collection Centers**
+   - Plastic waste collection points
+   - Initial segregation of plastic types
+   - Weight measurement and recording
+
+2. **Sorting & Cleaning**
+   - Separation by plastic types (PET, HDPE, LDPE, etc.)
+   - Removal of contaminants
+   - Washing and drying
+
+3. **Shredding**
+   - Size reduction to uniform pieces
+   - Increased surface area for better processing
+   - Quality control check
+
+4. **Pyrolysis**
+   - Thermal decomposition (400-450°C)
+   - Absence of oxygen
+   - Conversion of plastic to vapor
+
+5. **Condensation**
+   - Cooling of pyrolysis vapors
+   - Conversion to liquid hydrocarbons
+   - Temperature control
+
+6. **Distillation**
+   - Separation of different fuels
+   - Quality refinement
+   - Product classification
+
+7. **Fuel Storage**
+   - Safe storage of final products
+   - Quality testing
+   - Distribution preparation
+
 ## Features
 
 - **User Authentication**
