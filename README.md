@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Plastic to Fuel App
 
 A mobile application for tracking and managing plastic waste conversion to fuel.
@@ -114,10 +115,64 @@ graph LR
    ```bash
    flutter run
    ```
+=======
+# Plastic-to-Fuel Conversion Station
+
+A modern web application for managing plastic waste conversion to fuel, tracking contributions, and rewarding users for their environmental impact.
+
+## Features
+
+- **User Dashboard**
+  - Track plastic waste contributions
+  - Monitor fuel credits earned
+  - View recent activity
+  - Check rewards points
+
+- **Plastic Submission System**
+  - Submit plastic waste details
+  - Select plastic types (PET, HDPE, LDPE, PP)
+  - Choose collection points
+  - Automatic credit calculation
+
+- **Rewards Program**
+  - Convert plastic waste to fuel credits
+  - Redeem credits for rewards
+  - View available rewards
+  - Track redemption history
+
+- **Admin Dashboard**
+  - Monitor system status
+  - Manage plastic waste submissions
+  - Track machine performance
+  - Handle user approvals
+
+## Technologies Used
+
+- HTML5
+- CSS3 (with modern Flexbox and Grid layouts)
+- JavaScript (ES6+)
+- Font Awesome for icons
+- Google Fonts (Poppins)
+
+## Setup
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/plastic2fuel.git
+   ```
+
+2. Open the project:
+   ```bash
+   cd plastic2fuel
+   ```
+
+3. Open `index.html` in your web browser to view the application.
+>>>>>>> cf4ee53a179b3a701efba1b58214fd8c069c0a69
 
 ## Project Structure
 
 ```
+<<<<<<< HEAD
 lib/
 ├── models/          # Data models
 ├── providers/       # State management
@@ -134,6 +189,15 @@ lib/
 - intl: ^0.18.1 (Internationalization)
 - url_launcher: ^6.1.11 (URL Handling)
 
+=======
+plastic2fuel/
+├── index.html          # Main HTML file
+├── styles.css          # CSS styles
+├── script.js           # JavaScript functionality
+└── README.md          # Project documentation
+```
+
+>>>>>>> cf4ee53a179b3a701efba1b58214fd8c069c0a69
 ## Contributing
 
 1. Fork the repository
@@ -144,9 +208,13 @@ lib/
 
 ## License
 
+<<<<<<< HEAD
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Acknowledgments
 
 - Flutter Team for the amazing framework
 - All contributors who participate in this project
+=======
+This project is licensed under the MIT License - see the LICENSE file for details. 
+>>>>>>> cf4ee53a179b3a701efba1b58214fd8c069c0a69

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plastic-to-Fuel Conversion Station</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="sidebar">
+        <div class="logo">
+            <i class="fas fa-recycle"></i>
+            <span>P2F Station</span>
+        </div>
+        <ul class="nav-links">
+            <li class="active"><a href="#dashboard"><i class="fas fa-home"></i>Dashboard</a></li>
+            <li><a href="#submission"><i class="fas fa-upload"></i>Submit Plastic</a></li>
+            <li><a href="#credits"><i class="fas fa-coins"></i>Fuel Credits</a></li>
+            <li><a href="#rewards"><i class="fas fa-gift"></i>Rewards</a></li>
+            <li><a href="#admin"><i class="fas fa-user-shield"></i>Admin</a></li>
+        </ul>
+    </nav>
+
+    <main class="main-content">
+        <header>
+            <div class="header-content">
+                <h1>Welcome to P2F Station</h1>
+                <div class="user-info">
+                    <span class="user-name">John Doe</span>
+                    <img src="https://via.placeholder.com/40" alt="User" class="user-avatar">
+                </div>
+            </div>
+        </header>
+
+        <section id="dashboard" class="section active">
+            <div class="dashboard-grid">
+                <div class="card">
+                    <h3>Total Contributions</h3>
+                    <div class="card-content">
+                        <i class="fas fa-dumpster"></i>
+                        <span class="number">250</span>
+                        <span class="unit">kg</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>Fuel Credits</h3>
+                    <div class="card-content">
+                        <i class="fas fa-gas-pump"></i>
+                        <span class="number">75</span>
+                        <span class="unit">credits</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>Rewards Points</h3>
+                    <div class="card-content">
+                        <i class="fas fa-star"></i>
+                        <span class="number">1,250</span>
+                        <span class="unit">points</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="activity-section">
+                <h2>Recent Activity</h2>
+                <div class="activity-list">
+                    <div class="activity-item">
+                        <i class="fas fa-check-circle"></i>
+                        <div class="activity-details">
+                            <h4>Plastic Submission Approved</h4>
+                            <p>10kg of Type 2 plastic processed</p>
+                            <span class="time">2 hours ago</span>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <i class="fas fa-exchange-alt"></i>
+                        <div class="activity-details">
+                            <h4>Credits Redeemed</h4>
+                            <p>20 credits for fuel discount</p>
+                            <span class="time">1 day ago</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="submission" class="section">
+            <h2>Submit Plastic Waste</h2>
+            <div class="submission-form">
+                <form>
+                    <div class="form-group">
+                        <label>Plastic Type</label>
+                        <select required>
+                            <option value="">Select plastic type</option>
+                            <option value="1">Type 1 (PET)</option>
+                            <option value="2">Type 2 (HDPE)</option>
+                            <option value="4">Type 4 (LDPE)</option>
+                            <option value="5">Type 5 (PP)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Quantity (kg)</label>
+                        <input type="number" min="1" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Collection Point</label>
+                        <select required>
+                            <option value="">Select collection point</option>
+                            <option value="cp1">Station A</option>
+                            <option value="cp2">Station B</option>
+                            <option value="cp3">Station C</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn-primary">Submit</button>
+                </form>
+            </div>
+        </section>
+
+        <section id="credits" class="section">
+            <h2>Fuel Credits</h2>
+            <div class="credits-container">
+                <div class="credits-balance">
+                    <h3>Available Credits</h3>
+                    <div class="balance">75</div>
+                    <p>1 credit = 1 liter of fuel</p>
+                </div>
+                <div class="credits-history">
+                    <h3>Credits History</h3>
+                    <div class="history-list">
+                        <!-- Credits history items will go here -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="rewards" class="section">
+            <h2>Rewards & Redemption</h2>
+            <div class="rewards-grid">
+                <div class="reward-card">
+                    <img src="https://via.placeholder.com/150" alt="Fuel Discount">
+                    <h3>10% Fuel Discount</h3>
+                    <p>20 credits</p>
+                    <button class="btn-secondary">Redeem</button>
+                </div>
+                <div class="reward-card">
+                    <img src="https://via.placeholder.com/150" alt="Store Voucher">
+                    <h3>Store Voucher</h3>
+                    <p>50 credits</p>
+                    <button class="btn-secondary">Redeem</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="admin" class="section">
+            <h2>Admin Dashboard</h2>
+            <div class="admin-grid">
+                <div class="admin-card">
+                    <h3>System Status</h3>
+                    <div class="status-indicator active">
+                        <span class="dot"></span>
+                        System Operating Normally
+                    </div>
+                </div>
+                <div class="admin-card">
+                    <h3>Pending Approvals</h3>
+                    <div class="approval-list">
+                        <!-- Approval items will go here -->
+                    </div>
+                </div>
+                <div class="admin-card">
+                    <h3>Machine Performance</h3>
+                    <div class="performance-metrics">
+                        <!-- Performance metrics will go here -->
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html> 
