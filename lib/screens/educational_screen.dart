@@ -1,0 +1,1 @@
+import "package:flutter/material.dart"; class EducationalScreen extends StatelessWidget { const EducationalScreen({super.key}); @override Widget build(BuildContext context) { return Scaffold(appBar: AppBar(title: const Text("Learn About Plastic to Fuel")), body: const Center(child: Text("Educational Content About Plastic to Fuel Conversion"))); } }

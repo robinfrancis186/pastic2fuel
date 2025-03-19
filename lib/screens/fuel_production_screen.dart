@@ -1,0 +1,1 @@
+import "package:flutter/material.dart"; class FuelProductionScreen extends StatelessWidget { const FuelProductionScreen({super.key}); @override Widget build(BuildContext context) { return Scaffold(appBar: AppBar(title: const Text("Add Fuel Production")), body: const Center(child: Text("Add Fuel Production Form"))); } }

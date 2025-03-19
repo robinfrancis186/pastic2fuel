@@ -1,0 +1,1 @@
+import "package:flutter/material.dart"; class PlasticCollectionScreen extends StatelessWidget { const PlasticCollectionScreen({super.key}); @override Widget build(BuildContext context) { return Scaffold(appBar: AppBar(title: const Text("Add Plastic Collection")), body: const Center(child: Text("Add Plastic Collection Form"))); } }
