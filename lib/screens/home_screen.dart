@@ -1,6 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../providers/auth_provider.dart';
+import '../providers/plastic_collection_provider.dart';
+import '../providers/fuel_production_provider.dart';
+import '../widgets/plastic_collection_list.dart';
+import '../widgets/fuel_production_list.dart';
+import 'plastic_collection_screen.dart';
+import 'fuel_production_screen.dart';
+import 'map_screen.dart';
+import 'profile_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -70,6 +78,28 @@ class _HomeScreenState extends State<HomeScreen> {
         onTap: _onItemTapped,
         type: BottomNavigationBarType.fixed,
       ),
+      floatingActionButton: _selectedIndex == 1 || _selectedIndex == 2
+          ? FloatingActionButton(
+              onPressed: () {
+                if (_selectedIndex == 1) {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const PlasticCollectionScreen(),
+                    ),
+                  );
+                } else if (_selectedIndex == 2) {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const FuelProductionScreen(),
+                    ),
+                  );
+                }
+              },
+              child: const Icon(Icons.add),
+            )
+          : null,
     );
   }
 
@@ -78,13 +108,13 @@ class _HomeScreenState extends State<HomeScreen> {
       case 0:
         return _buildDashboard();
       case 1:
-        return _buildPlasticCollections();
+        return const PlasticCollectionList();
       case 2:
-        return _buildFuelProductions();
+        return const FuelProductionList();
       case 3:
-        return _buildMap();
+        return const MapScreen();
       case 4:
-        return _buildProfile();
+        return const ProfileScreen();
       default:
         return _buildDashboard();
     }
@@ -92,6 +122,8 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Widget _buildDashboard() {
     final authProvider = Provider.of<AuthProvider>(context);
+    final plasticProvider = Provider.of<PlasticCollectionProvider>(context);
+    final fuelProvider = Provider.of<FuelProductionProvider>(context);
     
     return SingleChildScrollView(
       padding: const EdgeInsets.all(16.0),
@@ -114,7 +146,7 @@ class _HomeScreenState extends State<HomeScreen> {
               Expanded(
                 child: _buildStatsCard(
                   title: 'Plastic Collected',
-                  value: '0.0 kg',
+                  value: '${plasticProvider.totalCollectedWeight.toStringAsFixed(1)} kg',
                   icon: Icons.recycling,
                   color: Colors.green,
                 ),
@@ -123,7 +155,7 @@ class _HomeScreenState extends State<HomeScreen> {
               Expanded(
                 child: _buildStatsCard(
                   title: 'Fuel Produced',
-                  value: '0.0 L',
+                  value: '${fuelProvider.totalProducedVolume.toStringAsFixed(1)} L',
                   icon: Icons.local_gas_station,
                   color: Colors.blue,
                 ),
@@ -164,6 +196,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   const SizedBox(height: 16),
                   ElevatedButton(
                     onPressed: () {
+                      // Navigate to educational content
                       ScaffoldMessenger.of(context).showSnackBar(
                         const SnackBar(
                           content: Text('Educational content coming soon!'),
@@ -228,143 +261,6 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ],
         ),
-      ),
-    );
-  }
-
-  Widget _buildPlasticCollections() {
-    return const Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Icon(
-            Icons.recycling,
-            size: 80,
-            color: Colors.green,
-          ),
-          SizedBox(height: 16),
-          Text(
-            'Plastic Collections',
-            style: TextStyle(
-              fontSize: 24,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-          SizedBox(height: 8),
-          Text(
-            'Track your plastic waste collections',
-            style: TextStyle(
-              fontSize: 16,
-              color: Colors.grey,
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildFuelProductions() {
-    return const Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Icon(
-            Icons.local_gas_station,
-            size: 80,
-            color: Colors.blue,
-          ),
-          SizedBox(height: 16),
-          Text(
-            'Fuel Productions',
-            style: TextStyle(
-              fontSize: 24,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-          SizedBox(height: 8),
-          Text(
-            'Track your fuel production from plastic waste',
-            style: TextStyle(
-              fontSize: 16,
-              color: Colors.grey,
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildMap() {
-    return const Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Icon(
-            Icons.map,
-            size: 80,
-            color: Colors.orange,
-          ),
-          SizedBox(height: 16),
-          Text(
-            'Collection Centers',
-            style: TextStyle(
-              fontSize: 24,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-          SizedBox(height: 8),
-          Text(
-            'Find plastic collection centers near you',
-            style: TextStyle(
-              fontSize: 16,
-              color: Colors.grey,
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildProfile() {
-    final authProvider = Provider.of<AuthProvider>(context);
-    
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          const CircleAvatar(
-            radius: 50,
-            backgroundColor: Color(0xFF00A86B),
-            child: Icon(
-              Icons.person,
-              size: 50,
-              color: Colors.white,
-            ),
-          ),
-          const SizedBox(height: 16),
-          Text(
-            authProvider.username,
-            style: const TextStyle(
-              fontSize: 24,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-          Text(
-            authProvider.email.isEmpty ? 'No email provided' : authProvider.email,
-            style: const TextStyle(
-              fontSize: 16,
-              color: Colors.grey,
-            ),
-          ),
-          const SizedBox(height: 32),
-          ElevatedButton(
-            onPressed: _logout,
-            style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.red,
-            ),
-            child: const Text('Logout'),
-          ),
-        ],
       ),
     );
   }
